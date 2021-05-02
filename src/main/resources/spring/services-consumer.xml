@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    
+    <!-- 引用的服务，那个interface一定是一个被引入到DUBBO仓库的接口定义，注意check=false，表示zookeeper不检查提供者是否存在 protocol="dubbo" 对于双协议只使用声明的协议-->
+    <!--<dubbo:reference interface="com.foreveross.system.service.rpc.api.SystemPolicyService" id="systemPolicyService" protocol="dubbo" group="xmlConfig" check="false" />-->
+</beans>

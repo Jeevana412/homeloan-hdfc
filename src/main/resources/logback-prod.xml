@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 当前Log文件名 -->
+        <file>logs/homeloanlimit-prod.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/homeloanlimit.%d{yyyy-MM-dd}-prod-%i.log</fileNamePattern>
+            <!-- 超过30天的备份文件会被删除 -->
+            <maxHistory>30</maxHistory>
+            <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <MaxFileSize>3MB</MaxFileSize>
+            </TimeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <!-- 格式说明:http://logback.qos.ch/manual/layouts.html#ClassicPatternLayout -->
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{35} - %msg%n</Pattern>
+        </layout>
+    </appender>
+
+    <root level="DEBUG">
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>
